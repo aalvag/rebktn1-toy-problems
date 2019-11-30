@@ -43,8 +43,9 @@ var bubbleSort = function(array) {
   		array[i+1] = array[i]
   		array[i]=tmp
   	}
-  	j++
+  	
   }
+  j++
   }
   return array;
 };
