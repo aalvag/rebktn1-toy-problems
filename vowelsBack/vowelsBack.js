@@ -25,11 +25,11 @@ function moveLetter(letter) {
 			return  "a"
 		}
 		else {
-			if(alphabet.indexof(letter)+9 > 25) {
-				return "a"
+			if(alphabet.indexOf(letter)+9 > 25) {
+				return alphabet[9-(25- alphabet.indexOf(letter))]
 			}
 			else {
-				return alphabet [alphabet.indexof(letter)+9]
+				return alphabet[alphabet.indexOf(letter)+9]
 			}
 		}
 
@@ -42,11 +42,11 @@ function moveLetter(letter) {
 			return  "a"
 		}
 		else {
-			if(alphabet.indexof(letter)-5 > 0) {
-				return "a"
+			if(alphabet.indexOf(letter)-5 < 0) {
+				return alphabet[25- alphabet.indexOf(letter)-5]
 			}
 			else {
-				return alphabet [alphabet.indexof(letter)-5]
+				return alphabet[alphabet.indexOf(letter)-5]
 			}
 		}
 
@@ -56,7 +56,7 @@ function moveLetter(letter) {
 
 function playWithString(string) {
 	var result = ""
-	for(var i= 0;i<string.length) {
+	for(var i= 0;i<string.length;i++) {
 		if(!['c', 'o', 'd', 'e'].includes(moveLetter(string[i]))) {
 			result += moveLetter(string[i])
 		}
