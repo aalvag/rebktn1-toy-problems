@@ -12,5 +12,14 @@
   *
   */
 var deepEquals = function(apple, orange) {
-	return JSON.stringify(apple)===JSON.stringify(orange)
+	 for(var key in apple) {
+	 	if(apple[key]!==orange[key] && typeof(apple[key])!=="object") {
+	 		return false
+
+	 	}
+	 	else if(typeof(apple[key]) ==="object") {
+	 		return deepEquals(apple[key],orange[key])
+	 	}
+	 }
+	 return true ;
 };
