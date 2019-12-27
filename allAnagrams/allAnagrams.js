@@ -35,6 +35,7 @@ var allAnagrams = function (string) {
       for (var k = j; k < results[i].length; k++) {
         if (k !== j && results[i][j] === results[i][k]) {
           results.splice(i, 1)
+
         }
       }
     }
