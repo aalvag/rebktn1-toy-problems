@@ -9,4 +9,16 @@ primeTester(1) // false
 
 */
 
-function primeTester(n) {}
+function primeTester(n) {
+	if(n>1) {
+		for(var i= 2;i<=n;i++) {
+			if(n%i) {
+				return false
+			}
+		}
+		return true
+	}
+	else {
+		return false
+	}
+}
