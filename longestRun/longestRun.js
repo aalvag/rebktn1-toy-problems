@@ -12,6 +12,7 @@ longestRun("abcdefgh") // [ 0, 0 ]
 longestRun("abccccccc") // [ 2, 8 ]
 */
 
+<<<<<<< HEAD
 function longestRun(string) {
 	var max =1;
 	var start =0
@@ -35,3 +36,8 @@ function longestRun(string) {
 	}
 	return [start,start+max-1]
 }
+=======
+
+
+
+>>>>>>> 26958188a2074d88c523cd902b4e19b8f6d513e6
