@@ -26,19 +26,62 @@ var makeHashTable = function() {
   var storageLimit = 4;
   var size = 0;
   
-  result.insert = function(/*...*/ 
-) {
+  result.insert = function(value) {
     // TODO: implement `insert`
+  var bucket =[]
+ var index = getIndexBelowMaxForKey(value,storageLimit)
+ if(storage[index]===null) {
+ 	storage[index]= bucket
+ 	bucket.push(value)
+ }
+ else {
+ 	storage[index].push(value)
+ }
+ size++
+ if(size>storageLimit*0.75) {
+ 	storageLimit *=2
+ 	var oldStorage = Array.protptype.slice(storage) 
+ 	for(var i =0;i<oldStorage.length;i++) {
+ 		this.insert(oldStorage[i])
+ 	}
+ }
+
+
+
   };
 
-  result.retrieve = function(/*...*/ 
-) {
+  result.retrieve = function(value) {
+  	var index =getIndexBelowMaxForKey(value,storageLimit)
+  	var bucket = storage[index]
+  	var isExist = false
+  	var(var =0;i<bucket.length;i++) {
+  		if(bucket[i]===value) {
+  			return true
+  		}
+  	}
+  	return false
     // TODO: implement `retrieve`
   };
 
-  result.remove = function(/*...*/ 
-) {
+  result.remove = function(value) {
     // TODO: implement `remove`
+    var index = getIndexBelowMaxForKey(value,storageLimit)
+    var bucket = storage[index];
+    for(var i=0;i<bucket.length;i++) {
+    	if(bucket [i]===value) {
+    		bucket.splice(bucket.indexOf(value),1)
+    		size--
+    	}
+    }
+    if(size<storageLimit*0.25) {
+    	storageLimit = Math.floor(storageLimit/2) 
+    	var oldStorage = Array.protptype.slice(storage) 
+ 	for(var i =0;i<oldStorage.length;i++) {
+ 		this.insert(oldStorage[i])
+ 	}
+
+    }
+
   };
 
   return result;
