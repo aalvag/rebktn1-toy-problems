@@ -27,4 +27,14 @@ function Node (val) {
 ​
 var reverseLinkedList = function(linkedList) {
   // your code here...
+  var prev;
+  var head= linkedList.head
+  while (head.next) {
+    var next = head.next;
+    head.next = prev;
+    prev = head;
+    head = next;
+  }
+  head.next = prev;
+  return head;
 };
