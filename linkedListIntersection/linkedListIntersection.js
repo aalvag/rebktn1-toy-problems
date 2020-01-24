@@ -39,5 +39,33 @@ function Node (val) {
 
 function linkedListIntersection(list1, list2) {
   // TODO: Implement this function!
+   if (!list1 || !list2) return null;
+    
+  let p1 = list1;
+  let p2 = list2;
+  let p1ReachedEnd = false;
+  let p2ReachedEnd = false;
+  
+  while(p1 !== p2) {
+    p1 = p1.next;
+    if (!p1) {
+      if (!p1ReachedEnd) {
+        p1 = l2;
+        p1ReachedEnd = true;   
+      } else {
+        return null;
+      }
+    }
+     
+    p2 = p2.next;
+    if (!p2) {
+      if (!p2ReachedEnd) {
+        p2 = list1;
+        p2ReachedEnd = true;
+      } else {
+        return null;
+      }
+    }
+return p1
 }
 
