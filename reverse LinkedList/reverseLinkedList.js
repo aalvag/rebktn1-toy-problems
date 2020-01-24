@@ -21,7 +21,7 @@ Constraint 3: Do not mutate the original nodes by adding any new properties
 function Node (val) {
   var obj = {};
   obj.value = val || null;
-  obj.next = null;
+  obj.next = null; 
   return obj;
 }
 ​
