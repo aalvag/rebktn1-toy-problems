@@ -29,4 +29,20 @@ function Node(val) {
 
 var hasCycle = function(linkedList) {
   // your code here...
+  var arr = []
+  var currentHead =linkedList.head;
+  var nextHead = currentHead.next;
+  arr.push(JSON.stringify(currentHead))
+  while(!arr.includes(JSON.stringify(currentHead))&&nextHead !==null) {
+  	currentHead = nextHead;
+  	nextHead = currentHead.nextHead
+  	arr.push(JSON.stringify(nextHead))
+
+
+  }
+  if(arr.includes(JSON.stringify(currentHead)) ){
+  	return true
+  }
+  return false
+
 };
