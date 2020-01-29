@@ -7,4 +7,19 @@ Other palindromes in the above string include "dad", "ete", " dad " (including w
 
 function longestPalindrome(string) {
   // your code here...
+ var palindrome = '';
+ var arr = []
+ for(var i = 0;i<string.length;i++) {
+ 	for(j=i+1;j<=string.length;j++) {
+ 		if(string.substring(i,j+1).split('').reverse().join('')===string.substring(i,j+1))
+ 		arr.push(string.substring(i,j))
+ 	}
+ }
+ var palindrome = ''
+ for (var i=0;i<arr.length;i++) {
+ 	if(arr[i].length>palindrome.length) {
+ 		palindrome=arr[i]
+ 	}
+ }
+ return palindrome
 }
