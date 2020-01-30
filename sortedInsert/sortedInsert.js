@@ -48,4 +48,19 @@ Stack.prototype.pop = function() {
 
 function sortedInsert(stack, element) {
   // your code here...
+  var arr = []
+  for(var i=stack.count;i>0;i--) {
+    arr.push(stack.peek())
+    stack.pop()
+  }
+  for(var i=0;i<arr.length;i++) {
+    if(element<arr[i]) {
+      arr.splice(i,0,element)
+    }
+  }
+  for(var i=arr.length-1;i>=0;i++) {
+    stack.push(arr[i])
+  }
+  return stack;
+
 }
