@@ -35,6 +35,16 @@
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
-var flatten = function (root) {
+function TreeNode(val) {
+     this.val = val;
+      this.left = this.right = null;
+ }
+var flatten = function (root,tree =new TreeNode(root.val) ) {
+if(root === null) {
+	return tree;
+}
+var left  =root.left
+flatten(left)
+flatten(right)
 
 };
