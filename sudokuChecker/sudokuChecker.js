@@ -78,6 +78,16 @@ function sudokuChecker(board) {
    	}
   
   }
+  //check subgrids
+  for(var i=0;i<SplittedBoard.length;i+=3) {
+  	for(var j=0;j<SplittedBoard.length;j+=3) {
+  		var subgrid = []
+  	}
+  	
+
+  }
+
+
 
   
 }

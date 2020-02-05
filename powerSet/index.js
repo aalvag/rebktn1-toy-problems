@@ -20,4 +20,19 @@ powerSet("horse") // [ "", "e", "eh", "eho", "ehor", "ehors", "ehos", "ehr", "eh
 
 function powerSet(string) {
   // your code here...
+  var result = [""];
+  
+  var set = []
+  for (var i = 0;i<string.length;i++) {
+  	if(!set.includes(string[i])) {
+  		set.push(string[i])
+  		//result.push(string[i])
+  	}
+  }
+  var str = set.join('')
+  for(var i=0;i<str.length;i++) {
+  	var comb = str.substring(i)
+  	result.push(comb) 
+  }
+ return result
 }
