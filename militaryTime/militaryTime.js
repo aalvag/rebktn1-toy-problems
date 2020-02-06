@@ -12,4 +12,13 @@ toMilitary("04:00") // "04:00"
 
 function toMilitary(time) {
   // your code here...
+  var timeSplitted = time.split(':')
+  var hours = Number(timeSplitted[0])
+ 
+  if(timeSplitted[1][2]==='p'){
+  	hours+=12
+  }else if(hours===12 &&timeSplitted[1][2]==='a') {
+  	hours = 0
+  }
+ return hours<10 ?"0"+hours+":"+timeSplitted[1][0]+timeSplitted[1][1]:hours+":"+timeSplitted[1][0]+timeSplitted[1][1]
 }
