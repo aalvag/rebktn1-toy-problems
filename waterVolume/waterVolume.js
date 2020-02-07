@@ -20,4 +20,18 @@ volume([1,2,3,2,1]) // 0
 
 function volume(heights) {
   // your code here...
+  var maxWater = 0
+  for(var i=1;i<heights.length-1;i++) {
+  	var currentVolume = 0
+  	if(heights[i]===0) {
+  		
+  		currentVolume =Math.min(heights[i-1],heights[i+1])
+  		i++
+  		if(currentVolume>maxWater) {
+  			maxWater=currentVolume
+  		}
+  	}
+
+  }
+  return maxWater
 }
