@@ -22,13 +22,14 @@ function bubbleSort(input) {
     // return your final answer.
     var i=0
     while(i<input.length) {
-    	for(var i=0;i<input.length;i++) {
-    		if(input[i]>input[i+1]) {
-    			var tmp =input[i]
-    			input[i]=input[i+1]
-    			input[i+1]=tmp
+    	for(var j=0;j<input.length;j++) {
+    		if(input[j]>input[j+1]) {
+    			var tmp =input[j]
+    			input[j]=input[j+1]
+    			input[j+1]=tmp
     		}
     	}
+    	i++
     }
     return input
 }

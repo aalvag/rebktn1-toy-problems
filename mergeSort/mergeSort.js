@@ -1,7 +1,10 @@
 /*
 Implement a function that sorts an array of numbers using the "mergesort" algorithm.
 
-Mergesort uses a divide-and-conquer strategy. It begins by treating the input list of length N as a set of N "sublists" of length 1, which are considered to be sorted. Adjacent sublists are then "merged" into sorted sublists of length 2, which are merged into sorted sublists of length 4, and so on, until only a single sorted list remains. (Note, if N is odd, an extra sublist of length 1 will be left after the first merge, and so on.)
+Mergesort uses a divide-and-conquer strategy. It begins by treating the input list of length N as a set of N "sublists" 
+//of length 1, which are considered to be sorted. Adjacent sublists are then "merged" into sorted sublists of length 2, 
+//which are merged into sorted sublists of length 4, and so on, until only a single sorted list remains.
+// (Note, if N is odd, an extra sublist of length 1 will be left after the first merge, and so on.)
 
 This can be implemented using either a recursive ("top-down") or an iterative ("bottom-up") approach.
 
@@ -36,7 +39,8 @@ Illustration of a recursive approach:
 
 Step 2 might seem a bit mystical - how do we sort both sides? 
 The simple answer is that we use mergesort! After all, mergesort sorts arrays, right? 
-We can test this on [4, 7, 4] by just following the steps above but imagining that [4, 7, 4] is the whole array, which is what happens when you call mergesort on it.
+We can test this on [4, 7, 4] by just following the steps above but imagining that [4, 7, 4] is the whole array,
+ which is what happens when you call mergesort on it.
 
    1.Split the input array in half
      [4, 7, 4] -> [4], [7, 4]
@@ -72,4 +76,40 @@ Array.prototype.sort = function() {
 
 function mergeSort(arr) {
   // your code here...
+    if (arr.length <= 1) {
+    return arr;
+  }
+
+  const middle = Math.floor(arr.length / 2);
+
+
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+
+
+  return merge(
+    mergeSort(left), mergeSort(right)
+  );
+
+}
+function merge (left, right) {
+  var resultArray = []
+  var leftIndex = 0
+  var rightIndex = 0
+
+  
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      resultArray.push(left[leftIndex]);
+      leftIndex++; // move left array cursor
+    } else {
+      resultArray.push(right[rightIndex]);
+      rightIndex++; 
+    }
+  }
+
+
+  return resultArray
+          .concat(left.slice(leftIndex))
+          .concat(right.slice(rightIndex));
 }
