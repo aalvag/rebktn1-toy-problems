@@ -4,6 +4,8 @@ Example usage:
 var obj = mixEvents({ name: 'Alice', age: 30 });
 obj.on('ageChange', function(){ // On takes an event name and a callback function
   console.log('Age changed');
+  obj.age++;
+
 });
 obj.age++;
 obj.trigger('ageChange'); // This should call our callback! Should log 'age changed'.
@@ -20,11 +22,14 @@ var mixEvents = function (obj) {
 
     obj.trigger = function (event) {
         // your code here...
+        events[event]()
     };
 
     // Register a callback to be fired on this event.
     obj.on = function (event, callback) {
         // your code here...
+        events[event]=callback
+
     };
     return obj;
 };

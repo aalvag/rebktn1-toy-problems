@@ -40,4 +40,29 @@ function makeBoard(n) {
 
 function robotPaths(n) {
   // your code here...
+
+  var board = makeBoard(n)
+  var count =0
+  function findPath(i,j){
+    debugger;
+    if(i === n-1 && j === n-1){
+      count++;
+      return;
+    }
+    board.togglePiece(i,j);
+    console.log(board)
+    if(i+1 < n && !board.hasBeenVisited(i+1,j))
+      findPath(i+1, j);
+    if(j+1 < n && !board.hasBeenVisited(i,j+1))
+      findPath(i, j+1);
+    if(i-1 >= 0 && !board.hasBeenVisited(i-1,j))
+      findPath(i-1,j);
+    if(j-1 >= 0 && !board.hasBeenVisited(i,j-1))
+      findPath(i, j-1);
+    
+      board.togglePiece(i,j);
+      console.log(board)
+  }
+  findPath(0,0);
+  return count;
 }
