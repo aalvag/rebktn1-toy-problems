@@ -8,7 +8,8 @@ It is a comparison sort, meaning that it can sort items of any type for which a 
 
 Quicksort uses these steps.
 
-  1. Choose any element of the array to be the pivot. There are multiple ways of selecting a pivot; explore the options and note their advantages.
+  1. Choose any element of the array to be the pivot. There are multiple ways of selecting a pivot; 
+  explore the options and note their advantages.
   2. Divide all other elements (except the pivot) into two partitions.
   3. All elements less than the pivot must be in the first partition.
   4. All elements greater than the pivot must be in the second partition.
@@ -25,4 +26,31 @@ NOTE: DO NOT use JavaScript’s built-in sorting function (Array.prototype.sort)
 
 function quickSort(arr) {
   // your code here...
+  function partition(arr,low,high) {
+  	var i=low;
+  	var j= high
+  	var pivot = arr[low]
+  	while(i<j) {
+  		while(arr[i]<=pivot) {
+  			i++
+  		}
+  		while(arr[j]>pivot) {
+  			j--
+  		}
+  		if(i<j) {
+  			var tmp = arr[j]
+  		arr[i]=arr[j]
+  		arr[j]=tmp
+  		}
+  		if(j<i) {
+  			var tmp =arr[low]
+  			arr[low]=arr[j]
+  			arr[j]=tmp
+  		}
+  		
+  	}
+  	return j
+  }
+ console.log(partition(arr,0,arr.length)) 
+
 }
