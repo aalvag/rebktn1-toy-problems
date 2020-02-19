@@ -42,7 +42,7 @@ var Queue = function() {
   	return outbox.pop()
   };
 
-  this.size = function() {
-  	return inbox.size()+outbox.size()
-  };
+  this.size = ()=> 
+  	 (inbox.size()+outbox.size())
+
 };

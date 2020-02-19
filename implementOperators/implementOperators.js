@@ -13,12 +13,31 @@ EXAMPLES:
 
 var multiply = function(x, y) {
   // your code here...
+  var result=0
+  var i=1;
+  while(i<=y) {
+  	result=result+x
+  	i++
+  }
+  return result
 };
 
-var divide = function(x, y) {
+var divide = function(x, y,count=0) {
   // your code here...
+  if(y===0) {
+  	return 'impossible to execute'
+  }
+  if(y>x) {
+  	return count
+  }
+  count++
+  return divide(x-y,y,count)
 };
 
 var modulo = function(x, y) {
   // your code here...
+  if(x<y) {
+  	return x
+  }
+  return modulo(x-y,y)
 };
