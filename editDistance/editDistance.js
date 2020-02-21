@@ -16,4 +16,15 @@ For more information check out this article: https://en.wikipedia.org/wiki/Leven
 
 function editDistance(str1, str2) {
     // your code here...
+    var count=0;
+    var l1=str1.length
+    var l2=str2.length
+    var short = l1>=l2?str2:str1
+        var long = l1>=l2?str1:str2
+
+    for(var i=0;i<long.length;i++) {
+    	if(short[i]&&short[i]!==long[i]) {
+    		count++
+    	}}
+    return count
 }
