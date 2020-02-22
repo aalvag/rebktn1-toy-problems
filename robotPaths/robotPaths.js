@@ -60,7 +60,7 @@ function robotPaths(n) {
     if(j-1 >= 0 && !board.hasBeenVisited(i,j-1))
       findPath(i, j-1);
     
-     // board.togglePiece(i,j);
+     board.togglePiece(i,j);
       
   }
   findPath(0,0);
